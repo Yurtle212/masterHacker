@@ -19,6 +19,9 @@ os.system('ping ' + target)
 print('\n')
 for i in range(75):
     if (i < 50):
+        if i == 49:
+            sys.stdout.write("\033[F" + "\033[K")
+            print(f'{pre} done \n')
         pre = 'Searching for insecurities...'
     else:
         pre = 'Initiating hack...'
@@ -37,6 +40,8 @@ for i in range(75):
         print(f'{pre} \\')
         last = '\\'
         time.sleep(.1)
+sys.stdout.write("\033[F" + "\033[K")
+print("Initiating hack... done\n")
 for i in range(101):
     sys.stdout.write("\033[F" + "\033[K")
     print(f'Hacking {target} {i}% ({"█" * math.floor(i/2)}{"." * math.ceil((100-i)/2)})')
